@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: auth-starter-postgres
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: authstarter
+      POSTGRES_PASSWORD: authstarter
+      POSTGRES_DB: authstarter
+    volumes:
+      - auth_starter_pgdata:/var/lib/postgresql/data
+
+volumes:
+  auth_starter_pgdata:
